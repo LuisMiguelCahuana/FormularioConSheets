@@ -21,7 +21,7 @@ creds = Credentials.from_service_account_info(
 client = gspread.authorize(creds)
 
 # Abre tu hoja
-SHEET_NAME = "Registro Clientess"
+SHEET_NAME = "Registro Clientes"
 sheet = client.open(SHEET_NAME).sheet1
 
 # ================= FORMULARIO =================
