@@ -21,27 +21,8 @@ creds = Credentials.from_service_account_info(
 client = gspread.authorize(creds)
 
 # Abre tu hoja
-#SHEET_NAME = "Registro Clientes"
-#sheet = client.open(SHEET_NAME).sheet1
-
 SHEET_NAME = "Registro Clientes"
-
-try:
-    # Intentar abrir
-    spreadsheet = client.open(SHEET_NAME)
-except gspread.exceptions.SpreadsheetNotFound:
-    # Si no existe, lo crea
-    spreadsheet = client.create(SHEET_NAME)
-
-    # 🔥 IMPORTANTE: compartir el archivo contigo
-    spreadsheet.share(
-        'luismiguelcahuanafigueroa@gmail.com',  # 👈 cámbialo
-        perm_type='user',
-        role='writer'
-    )
-
-# Selecciona la primera hoja
-sheet = spreadsheet.sheet1
+sheet = client.open(SHEET_NAME).sheet1
 
 # ================= FORMULARIO =================
 with st.form("formulario"):
